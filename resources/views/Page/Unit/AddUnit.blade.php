@@ -72,10 +72,10 @@
                     <div class="mb-3">
                         <label for="id_jadwal" class="form-label">Jadwal Pengangkutan</label>
                         <!-- Tambahkan dropdown untuk status sampah -->
-                        <select class="form-control" id="id_jadwal" name="id_jadwal">
+                        <select class="form-control" id="id_pengajuan" name="id_pengajuan">
                             <option>-- Pilih Hari--</option>
-                            @foreach($jadwals as $jadwalss)
-                                <option value="{{ $jadwalss->id }}">{{ $jadwalss->nama }}</option>
+                            @foreach($pengajuans as $pengajuanss)
+                                <option value="{{ $pengajuanss->id }}">{{ $pengajuanss->nama }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -95,10 +95,6 @@
                         </div>
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" required placeholder="Masukan Email ">
-                    </div>
 
                     <!-- Dropdown untuk Provinsi -->
                     <div class="mb-3">

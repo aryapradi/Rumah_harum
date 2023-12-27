@@ -48,7 +48,7 @@
                                     </td>
                                     <td>{{ $unit->nama_unit }}</td>
                                     <td>{{ $unit->tanggal }}</td>
-                                    <td>{{ $unit->jadwal->nama }}</td>
+                                    <td>{{ $unit->pengajuan->nama}}</td>
                                     <td>{{ $unit->district->name }}</td>
                                     <td>{{ $unit->village->name }}</td>
                                     <td>

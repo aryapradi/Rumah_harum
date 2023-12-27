@@ -19,10 +19,9 @@ class Unit extends Model
         'sk_unit', 
         'sk_terbit', 
         'nomor_sk', 
-        'id_jadwal', 
+        'id_pengajuan', 
         'nomor_handphone', 
         'nomor_telepon', 
-        'email', 
         'provinsi', 
         'kabupaten', 
         'kecamatan', 
@@ -32,9 +31,9 @@ class Unit extends Model
     ];
 
 
-    public function jadwal()
+    public function pengajuan()
     {
-        return $this->belongsTo(Jadwal::class, 'id_jadwal');
+        return $this->belongsTo(pengajuan::class, 'id_pengajuan');
     }
 
     public function province()

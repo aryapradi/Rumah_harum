@@ -5,11 +5,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Unit;
-use App\Models\Jadwal;
 use App\Models\Regency;
 use App\Models\Village;
 use App\Models\District;
+
 use App\Models\Province;
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
@@ -26,13 +27,13 @@ class UnitController extends Controller
 
     public function create()
 {
-    $jadwals = Jadwal::all(); // Use 'all' to get all schedules
+    $pengajuans = Pengajuan::all(); // Use 'all' to get all schedules
     $provinsis = Province::pluck('name', 'id');
     $kabupatens = []; // Inisialisasi data kabupaten sebagai array kosong
     $kecamatans = []; // Inisialisasi data kecamatan  sebagai array kosong
     $desas = []; // Inisialisasi data desa sebagai array kosong
 
-    return view('Page.Unit.AddUnit', compact('jadwals', 'provinsis', 'kabupatens', 'kecamatans', 'desas'));
+    return view('Page.Unit.AddUnit', compact('pengajuans', 'provinsis', 'kabupatens', 'kecamatans', 'desas'));
 }
 
 
@@ -47,10 +48,9 @@ public function store(Request $request)
         'sk_unit' => 'required',
         'sk_terbit' => 'required',
         'nomor_sk' => 'required',
-        'id_jadwal' => 'required',
+        'id_pengajuan' => 'required',
         'nomor_handphone' => 'required',
         'nomor_telepon' => 'required',
-        'email' => 'required|email',
         'provinsi' => 'required',
         'kabupaten' => 'required',
         'kecamatan' => 'required',
@@ -70,10 +70,9 @@ public function store(Request $request)
         'sk_unit' => $request->sk_unit,
         'sk_terbit' => $request->sk_terbit,
         'nomor_sk' => $request->nomor_sk,
-        'id_jadwal' => $request->id_jadwal,
+        'id_pengajuan' => $request->id_pengajuan,
         'nomor_handphone' => $request->nomor_handphone,
         'nomor_telepon' => $request->nomor_telepon,
-        'email' => $request->email,
         'provinsi' => $request->provinsi,
         'kabupaten' => $request->kabupaten,
         'kecamatan' => $request->kecamatan,
@@ -133,12 +132,12 @@ private function uploadImage($image)
 
     public function edit(Unit $unit)
 {
-    $jadwals = Jadwal::all(); // Use 'all' to get all schedules
+    $pengajuans = Pengajuan::all(); // Use 'all' to get all schedules
     $provinsis = Province::pluck('name', 'id');
     $kabupatens = []; // Inisialisasi data kabupaten sebagai array kosong
     $kecamatans = []; // Inisialisasi data kecamatan  sebagai array kosong
     $desas = []; // Inisialisasi data desa sebagai array kosong
-    return view('Page.Unit.EditUnit', compact('unit', 'jadwals', 'provinsis','kabupatens','kecamatans','desas'));
+    return view('Page.Unit.EditUnit', compact('unit', 'pengajuans', 'provinsis','kabupatens','kecamatans','desas'));
 }
 
 
@@ -152,10 +151,9 @@ private function uploadImage($image)
         'sk_unit' => 'required',
         'sk_terbit' => 'required',
         'nomor_sk' => 'required',
-        'id_jadwal' => 'required', 
+        'id_pengajuan' => 'required', 
         'nomor_handphone' => 'required',
         'nomor_telepon' => 'required',
-        'email' => 'required',
         'id_province' => 'required', 
         'id_regency' => 'required', 
         'id_district' => 'required', 

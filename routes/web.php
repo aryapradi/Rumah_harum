@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\JenisController;
-use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\SampahController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\StatusController;
@@ -62,13 +62,13 @@ Route::post('/TambahStatus', [StatusController::class, 'store'])->name('status.s
 Route::get('/status/{id}/edit', [StatusController::class, 'edit'])->name('status.edit');
 Route::put('/status/{status}', [StatusController::class, 'update'])->name('status.update');
 Route::delete('/status/{status}', [StatusController::class, 'destroy'])->name('status.destroy');
-// Jadwal
-Route::get('/HalamanHari', [JadwalController::class, 'index'])->name('Jadwal');
-Route::get('/TambahHari', [JadwalController::class, 'create'])->name('jadwals.create');
-Route::post('/TambahHari', [JadwalController::class, 'store'])->name('jadwals.store');
-Route::delete('/jadwals/{jadwal}', [JadwalController::class, 'destroy'])->name('jadwals.destroy');
-Route::get('/jadwals/{jadwal}/edit', [JadwalController::class, 'edit'])->name('jadwals.edit');
-Route::put('/jadwals/{jadwal}', [JadwalController::class, 'update'])->name('jadwals.update');
+// PENGAJUAN
+Route::get('/HalamanPengajuan', [PengajuanController::class, 'index'])->name('Pengajuan');
+Route::get('/TambahPengajuan', [PengajuanController::class, 'create'])->name('pengajuans.create');
+Route::post('/TambahPengajuan', [PengajuanController::class, 'store'])->name('pengajuans.store');
+Route::delete('/pengajuan/{pengajuan}', [PengajuanController::class, 'destroy'])->name('pengajuans.destroy');
+Route::get('/pengajuan/{pengajuan}/edit', [PengajuanController::class, 'edit'])->name('pengajuans.edit');
+Route::put('/pengajuan/{pengajuan}', [PengajuanController::class, 'update'])->name('pengajuans.update');
 // JENIS
 Route::get('/HalamanJenis', [JenisController::class, 'index'])->name('Jenis');
 Route::get('/TambahJenis', [JenisController::class, 'create'])->name('jenis.create');

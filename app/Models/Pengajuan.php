@@ -7,17 +7,17 @@ use App\Models\Unit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Jadwal extends Model
+class pengajuan extends Model
 {
     use HasFactory;
     
-    protected $table = 'jadwal';
+    protected $table = 'pengajuan';
     protected $fillable = ['nama'];
 
 
     public function units()
     {
-        return $this->hasMany(Unit::class, 'id_jadwal');
+        return $this->hasMany(Unit::class, 'id_pengajuan');
     }
 
 }

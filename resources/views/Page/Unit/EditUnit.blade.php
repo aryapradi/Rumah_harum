@@ -13,7 +13,7 @@
                 <h2>{{ isset($unit) ? 'Edit Unit' : 'Tambah Unit' }}</h2>
             </div>
             <div class="card-body">
-                <form action="{{ isset($unit) ? route('unit.update', $unit->id) : route('unit.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('unit.update', $unit->id) }}" method="post">
                     @csrf
                     @if(isset($unit))
                         @method('PUT')
@@ -70,12 +70,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="id_jadwal" class="form-label">Jadwal Pengangkutan</label>
-                        <select class="form-control" id="id_jadwal" name="id_jadwal">
+                        <label for="id_pengajuan" class="form-label">Jadwal Pengangkutan</label>
+                        <select class="form-control" id="id_pengajuan" name="id_pengajuan">
                             <option value="" disabled selected>-- Pilih Hari--</option>
-                            @foreach($jadwals as $jadwalss)
-                                <option value="{{ $jadwalss->id }}" {{ (isset($unit) && $unit->id_jadwal == $jadwalss->id) ? 'selected' : '' }}>
-                                    {{ $jadwalss->nama }}
+                            @foreach($pengajuans as $pengajuanss)
+                                <option value="{{ $pengajuanss->id }}" {{ (isset($unit) && $unit->id_jadwal == $pengajuanss->id) ? 'selected' : '' }}>
+                                    {{ $pengajuanss->nama }}
                                 </option>
                             @endforeach
                         </select>
@@ -95,10 +95,6 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="{{ isset($unit) ? $unit->email : old('email') }}" required>
-                    </div>
 
                     <!-- Dropdown untuk Provinsi -->
                     <div class="mb-3">

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jadwal;
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
-class JadwalController extends Controller
+class PengajuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class JadwalController extends Controller
      */
     public function index()
     {
-        $jadwals = Jadwal::all();
-        return view('Page.Jadwal.ListJadwal', compact('jadwals'));
+        $pengajuans = Pengajuan::all();
+        return view('Page.Pengajuan.Listpengajuan', compact('pengajuans'));
     }
 
     /**
@@ -25,7 +25,7 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        return view('Page.Jadwal.AddJadwal');
+        return view('Page.Pengajuan.Addpengajuan');
     }
 
     /**
@@ -36,12 +36,12 @@ class JadwalController extends Controller
      */
     public function store(Request $request)
     {
-        Jadwal::create([
+        Pengajuan::create([
             'nama' => $request->input('nama'),
             
         ]);
     
-        return redirect()->route('Jadwal')->with('success', 'Jadwal berhasil ditambahkan.');
+        return redirect()->route('Pengajuan')->with('success', 'Jadwal berhasil ditambahkan.');
     }
 
     /**
@@ -61,9 +61,9 @@ class JadwalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jadwal $jadwal)
+    public function edit(Pengajuan $pengajuan)
     {
-        return view('Page.Jadwal.EditJadwal', compact('jadwal'));
+        return view('Page.Pengajuan.Editpengajuan', compact('pengajuan'));
     }
 
     /**
@@ -82,16 +82,16 @@ class JadwalController extends Controller
         ]);
 
         // Ambil data jadwal berdasarkan ID
-        $jadwal = Jadwal::findOrFail($id);
+        $pengajuan = Pengajuan::findOrFail($id);
 
         // Update data jadwal
-        $jadwal->update([
+        $pengajuan->update([
             'nama' => $request->input('nama'),
             // Sesuaikan dengan field lainnya
         ]);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('Jadwal')->with('success', 'Jadwal berhasil diperbarui.');
+        return redirect()->route('Pengajuan')->with('success', 'Jadwal berhasil diperbarui.');
     }
 
     /**
@@ -102,9 +102,9 @@ class JadwalController extends Controller
      */
     public function destroy($id)
     {
-        $jadwal = Jadwal::findOrFail($id);
-        $jadwal->delete();
+        $pengajuan = Pengajuan::findOrFail($id);
+        $pengajuan->delete();
 
-        return redirect()->route('Jadwal')->with('success', 'Jadwal berhasil dihapus.');
+        return redirect()->route('Pengajuan')->with('success', 'Jadwal berhasil dihapus.');
     }
 }

@@ -62,7 +62,7 @@
                             <tr>
                                 <th scope="row">Hari Pengangkutan</th>
                                 <td class="text-center">:</td>
-                                <td>{{ $unit->jadwal->nama }}</td>
+                                <td>{{ $unit->pengajuan->nama }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Nomor Handphone</th>
@@ -73,11 +73,6 @@
                                 <th scope="row">Nomor Telepon</th>
                                 <td class="text-center">:</td>
                                 <td>{{ $unit->nomor_telepon }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Email</th>
-                                <td class="text-center">:</td>
-                                <td>{{ $unit->email }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Provinsi</th>

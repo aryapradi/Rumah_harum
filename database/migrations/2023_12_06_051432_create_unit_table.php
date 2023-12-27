@@ -16,11 +16,9 @@ class CreateUnitTable extends Migration
             $table->integer('sk_unit');
             $table->integer('sk_terbit');
             $table->integer('nomor_sk');
-            $table->unsignedBigInteger('id_jadwal');
-            $table->foreign('id_jadwal')->references('id')->on('jadwal');
-            $table->integer('nomor_handphone');
-            $table->integer('nomor_telepon');
-            $table->string('email');
+            $table->unsignedBigInteger('id_pengajuan');
+            $table->bigInteger('nomor_handphone')->length(20);
+            $table->bigInteger('nomor_telepon')->length(20);   
             $table->char('provinsi');
             $table->char('kabupaten');
             $table->char('kecamatan');
@@ -29,7 +27,7 @@ class CreateUnitTable extends Migration
             $table->string('alamat_lengkap');
             $table->timestamps();
 
-
+            $table->foreign('id_pengajuan')->references('id')->on('pengajuan');
             $table->foreign('provinsi')->references('id')->on('provinces');
             $table->foreign('kabupaten')->references('id')->on('regencies');
             $table->foreign('kecamatan')->references('id')->on('districts');
