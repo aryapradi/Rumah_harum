@@ -54,17 +54,17 @@
                                 <td>{{ $row->satuan->nama }}</td>
                                 <td>
                                     <div class="dropdown">
-                                        <button type="button" class="btn btn-primary dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                            Actions
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a class="dropdown-item btn-info show-btn" href="{{ route('sampah.show', $row->id) }}">
+                                                <a class="dropdown-item " href="{{ route('sampah.show', $row->id) }}">
                                                     <i class="bx bx-search-alt me-1"></i> Show
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item btn-warning show-btn" href="{{ route('sampah.edit', $row->id) }}">
+                                                <a class="dropdown-item " href="{{ route('sampah.edit', $row->id) }}">
                                                     <i class="bx bx-edit-alt me-1"></i> Edit
                                                 </a>
                                             </li>

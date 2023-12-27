@@ -58,12 +58,12 @@
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <a class="dropdown-item btn-info show-btn" href="{{ route('unit.show', $unit->id) }}">
+                                                    <a class="dropdown-item " href="{{ route('unit.show', $unit->id) }}">
                                                         <i class="bx bx-search-alt me-1"></i> Show
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item btn-warning edit-btn" href="{{ route('unit.edit', $unit->id) }}">
+                                                    <a class="dropdown-item " href="{{ route('unit.edit', $unit->id) }}">
                                                         <i class="bx bx-edit-alt me-1"></i> Edit
                                                     </a>
                                                 </li>
